@@ -1,7 +1,7 @@
 # 2021년도 컴퓨터공학부 졸업작품
 ## 설계 주제 : 청각 장애인을 위한 스마트 스피커 연동 어플(Smart speaker application for hearing impaired)
 ##### [팀명]
-  +ToWorld
+  + ToWorld
 ##### [팀 구성원]
   + 임지섭(팀장)
   + 박재희
@@ -14,10 +14,10 @@
   + 언어 장애를 동반한 청각 장애인의 스마트 스피커 접근성 향상과 삶의 질 향상
 ##### [개발 환경]
 ###### 1. 언어
-> Kotlin
+> Kotlin   
 > Python
 ###### 2. 라이브러리
-> TensorFlow
+> TensorFlow   
 > RNNoise
 ###### 3. O/S
 > Android
@@ -26,6 +26,6 @@
 ###### 5. 데이터베이스
 > Google FireBase
 ###### 6. 개발 기기
-> Android 폰
+> Android 폰   
 > Google Home 스피커
 -----------
