@@ -1,6 +1,5 @@
 # 2021년도 컴퓨터공학부 졸업작품
 ## 설계 주제 : 청각 장애인을 위한 스마트 스피커 연동 어플(Smart speaker application for hearing impaired)
------------
 #####[팀명]
   +ToWorld
 #####[팀 구성원]
