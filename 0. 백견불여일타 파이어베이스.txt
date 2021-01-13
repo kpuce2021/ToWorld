@@ -1,8 +1,0 @@
-예제 소스 링크: https://roadbook.co.kr/212
-
-1. 차이점 조사: Realtime Database vs Cloud Firestore?
-
-2. 형식 조사: 공개 Getter가 제공 가능한 자바 객체?
- -> 207pg에 이걸로 한다는데 코틀린은 어떻게?
-
-3. NoSQL 사용 -> 이게 뭔데?
