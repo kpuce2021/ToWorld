@@ -2,7 +2,7 @@
 '''
 import os, sys
 
-folder = 'D:/DDataSet/living_light_on/' # D:\DDataSet\living_light_on
+folder = 'D:/DDataSet/today_weather/' # D:\DDataSet\living_light_on
 
 for filename in os.listdir(folder):
     infilename = os.path.join(folder,filename)
@@ -21,7 +21,7 @@ from pydub import AudioSegment
 
 formats_to_convert = ['.m4a']
 
-for (dirpath, dirnames, filenames) in os.walk("D:/DDataSet/living_light_on/"):
+for (dirpath, dirnames, filenames) in os.walk("D:/DDataSet/today_weather/"):
     for filename in filenames:
         if filename.endswith(tuple(formats_to_convert)):
 
