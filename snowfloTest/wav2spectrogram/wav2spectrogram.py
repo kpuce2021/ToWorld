@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 FIG_SIZE = (0.5,0.5) # FIG_SIZE * DPI
 
 file = "D:/DDataSet/"
-for i in range(1,30):
-    sig, sr = librosa.load(file +"living_light_on/g"+str(i)+".wav", sr=22050) # sampling rate 샘플링의 속도 ; 샘플링이란 아날로그 데이터에서 디지털 데이터를 추출하는 것 ; 즉 1초에 얼마나 읽는지 샘플링 레이트
+for i in range(1,161):
+    sig, sr = librosa.load(file +"tv_on/t ("+str(i)+").wav", sr=22050) # sampling rate 샘플링의 속도 ; 샘플링이란 아날로그 데이터에서 디지털 데이터를 추출하는 것 ; 즉 1초에 얼마나 읽는지 샘플링 레이트
 
     print(sr)
     print(sig, sig.shape)
@@ -20,7 +20,7 @@ for i in range(1,30):
     P = librosa.power_to_db(mel, ref=np.max)
     librosa.display.specshow(P)
 
-    plt.savefig('gpng/fig' + str(i) + '.png', bbox_inches=None, pad_inches=0)
+    plt.savefig(file+'spectrogram/tpng/fig' + str(i) + '.png', bbox_inches=None, pad_inches=0)
 
     '''
     librosa.display.waveplot(sig, sr, alpha=0.5)
