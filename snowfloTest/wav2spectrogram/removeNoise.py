@@ -6,7 +6,7 @@ folder_src = 'gpng/fig'
 folder_dst = 'gnoise/gfig'
 FIG_SIZE = (0.5,0.5)
 
-for i in range(1,2):
+for i in range(1,30):
     img = cv2.imread(folder_src+str(i)+'.png')
 
     dst = cv2.fastNlMeansDenoisingColored(img,None,10,10,7,21)
@@ -28,4 +28,6 @@ for i in range(1,2):
     plt.savefig("gnoise/noise"+str(i)+".png", dpi = 300, facecolor = 'none')
     plt.imshow(dst, cmap=plt.cm.rainbow, interpolation='bicubic')
     plt.savefig("gnoise/unnoise"+str(i)+".png", dpi = 300, facecolor = 'none')
+
+    print("remove noise "+str(i))
 
