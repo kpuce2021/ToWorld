@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">837067207822-1fudep3u3ugg1pajv83vkbvvnsdi31ue.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://kpu-capstone---toworld-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">837067207822</string>
+    <string name="google_api_key" translatable="false">AIzaSyBqx-NtXYH_h0sZNO-orLH0n2vuhJ0V_og</string>
+    <string name="google_app_id" translatable="false">1:837067207822:android:b25c517e5c4514d3bac5df</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBqx-NtXYH_h0sZNO-orLH0n2vuhJ0V_og</string>
+    <string name="google_storage_bucket" translatable="false">kpu-capstone---toworld.appspot.com</string>
+    <string name="project_id" translatable="false">kpu-capstone---toworld</string>
+</resources>
