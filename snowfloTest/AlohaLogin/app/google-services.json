@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "837067207822",
+    "firebase_url": "https://kpu-capstone---toworld-default-rtdb.firebaseio.com",
+    "project_id": "kpu-capstone---toworld",
+    "storage_bucket": "kpu-capstone---toworld.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837067207822:android:8d75f5bd6a180605bac5df",
+        "android_client_info": {
+          "package_name": "com.example.testappjava"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837067207822-1fudep3u3ugg1pajv83vkbvvnsdi31ue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqx-NtXYH_h0sZNO-orLH0n2vuhJ0V_og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837067207822-1fudep3u3ugg1pajv83vkbvvnsdi31ue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837067207822:android:b25c517e5c4514d3bac5df",
+        "android_client_info": {
+          "package_name": "kr.ac.kpu.alohalogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837067207822-1fudep3u3ugg1pajv83vkbvvnsdi31ue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqx-NtXYH_h0sZNO-orLH0n2vuhJ0V_og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837067207822-1fudep3u3ugg1pajv83vkbvvnsdi31ue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
