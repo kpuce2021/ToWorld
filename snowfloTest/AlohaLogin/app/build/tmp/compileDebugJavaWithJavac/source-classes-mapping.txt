@@ -1,2 +1,0 @@
-kr/ac/kpu/alohalogin/BuildConfig.java
- kr.ac.kpu.alohalogin.BuildConfig

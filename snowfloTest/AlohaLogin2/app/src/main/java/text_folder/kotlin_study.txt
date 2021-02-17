@@ -1,0 +1,40 @@
+ServiceActivity
+
+    userId = intent.getStringExtra("user_id") as Nothing? 파트
+
+    Kotlin Any = Java Object
+    Any는 "Root" 타입으로, 코틀린의 모든 타입은 Any를 상속
+    Java의 모든 객체가 Object를 상속하는 것과 동일
+
+    Kotlin Unit = Java void
+    return 값이 없어야 함
+
+    Unit vs void
+    1. Unit = 싱글톤 인스턴스, 즉 '타입' (void 타입)이면서 '인스턴스' 객체임
+    2. 따라서 Unit도 Any를 상속함 (객체라)
+
+    Kotlin Nothing
+    Nothing은 어떠한 값도 포함하지 않는 타입
+    Unit과 다른점은 private constructor로 정의되어 객체 생성 불가
+    Nothing은 모든 객체의 자식
+
+    Any: 모든 객체의 부모, Nothing: 모든 객체의 자식
+
+    Nothing has no instances. You can use Nothing to represent “a value that never exists”
+
+    Nothing의 사용
+    1. 함수가 리턴된 일이 없을 경우 = 종료되지 않음
+    Unit: 리턴할 값이 없음. Nothing: 리턴할 일이 없음.
+
+    2. 예외를 던지는 (throw Exception) 함수의 리턴 타입
+    throw Exception은 리턴이라고 보지 않음. 함수 강제 종료이기 때문임
+
+    반환값이 Nothing? 인 경우
+    1. 종료되지 않음
+    2. 예외를 던짐
+    3. null만 리턴함
+
+    === 파생 ===
+    코틀린 Expression?
+
+출처: https://readystory.tistory.com/143
