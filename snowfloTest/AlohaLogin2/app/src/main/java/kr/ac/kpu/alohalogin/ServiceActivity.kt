@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_service.*
 
+// record audio, send data fragment
 open class ServiceActivity : AppCompatActivity() {
     lateinit var mr: MediaRecorder
     var userId: String = "noNamed"

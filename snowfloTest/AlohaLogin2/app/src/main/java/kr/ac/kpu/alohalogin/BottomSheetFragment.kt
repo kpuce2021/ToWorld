@@ -1,29 +1,33 @@
 package kr.ac.kpu.alohalogin
 import android.app.ProgressDialog
+import android.content.ContentValues.TAG
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.bottomsheet_fragment.*
 import java.io.File
 import java.util.*
 
+// send data firebase
 class BottomSheetFragment() : BottomSheetDialogFragment() {
 
     var userId: String = "noNamed"
     var userEmail: String = "noNamed"
     var fileName: String = "noNamed"
+    var fileNum: Int = 0 // file numbering
 
-    private lateinit var database: DatabaseReference
+    private lateinit var database: DatabaseReference //firebase realtime DB 사용
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.bottomsheet_fragment, container, false)
@@ -42,10 +46,12 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
             userIdText.text=userId
             userEmailText.text=userEmail
             */
+            checkNum()
             uploadFile()
             uploadData()
         }
     }
+
 /*
     fun newInstance(isMyBoolean: Boolean) = BottomSheetFragment().apply {
         arguments = Bundle().apply {
@@ -53,15 +59,70 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
         }
     }
 */
+
     fun uploadData(){
         database = Firebase.database.reference
         database.child(userId).child("userId").setValue(userEmail)
         database.child(userId).child("fileName").setValue(fileName)
-}
+        database.child(userId).child("number").setValue(fileNum)
+    }
+
+    fun checkNum(){
+        var tempString:String? = null
+        database = Firebase.database.reference // realtimeDB reference 선언
+
+        val realtimeDBEvent1 = object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.child(userId).exists()){
+                    tempString = snapshot.child(userId).child("number").getValue().toString()
+                    fileNum = tempString!!.toInt() + 1
+                }
+                else{
+                    fileNum = 0
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException())
+            }
+
+        }
+        database.addValueEventListener(realtimeDBEvent1)
+    }
 
     fun uploadFile() {
+/*
+        val realtimeDBEvent2 = object : ChildEventListener{
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) { // 검색, 추가 대기
+                if(snapshot.exists()){ 
+                    
+                }else{
 
-        fileName = "record" + Random().nextInt(1000)
+                }
+            }
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) { // 변경 대기
+                TODO("Not yet implemented")
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) { // 삭제 대기
+                TODO("Not yet implemented")
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) { // 순서 변경 대기
+                TODO("Not yet implemented")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(TAG, "fileNumbers:onCancelled", error.toException())
+                Toast.makeText(context, "Failed to load fileNumbers.",
+                        Toast.LENGTH_SHORT).show()
+            }
+        }
+*/
+
+        // database.addChildEventListener(realtimeDBEvent2)
+        // fileName = "record" + Random().nextInt(1000)
+        fileName = "record"+fileNum
 
         var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //파일의 저장 위치
         val fileUri = Uri.fromFile(File(path))

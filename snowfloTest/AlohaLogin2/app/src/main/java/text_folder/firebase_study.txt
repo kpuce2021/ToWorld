@@ -16,3 +16,19 @@ RealTimeDatabase 기본적 쓰기
     데이터 구조 평면화
 
     확장 가능한 데이터 만들기
+
+RealTimeDatabase 데이터 부르기
+
+    1. addValueEventListener() 메소드를 이용하여 DatabaseReference에 ValueEventListener를 추가
+
+    2. addListenerForSingleValueEvent() 메소드를 이용하여 DatabaseReference에 ValueEventListener를 추가
+
+    3. addChildEventListener() 메소드를 이용하여 DatabaseReference에 ChildEventListener를 추가
+
+    출처: https://stack07142.tistory.com/282 [Hello World]
+
+DataSnapshot
+
+    출처: https://firebase.google.com/docs/reference/android/com/google/firebase/database/DataSnapshot
+
+
