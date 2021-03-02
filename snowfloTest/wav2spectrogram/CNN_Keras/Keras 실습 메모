@@ -1,0 +1,31 @@
+1. 어디에 사용?
+    - 우리의 경우 몇 진 분류??
+
+2. object function
+    - categorical crossentropy
+
+3. 출력층의 벡터수
+    - 몇 진 분류?? 의 결과 : 3진 -> 3개, 10진 -> 10개
+
+4. 입력
+    - 크기 (행, 열), 채널 수
+
+5. 연산
+    - 입력 : 크기, 채널 수
+    - 필터 : 크키, 필터 수 -> 출력 이미지의 수
+    - 학습할 weight 수 : 필터 수 * 필터 크기
+
+6. padding
+    - 입력과 크기가 동일 : same
+    - 입력과 크기가 다름 : valid
+
+# 용어
+    Convolution(합성곱) -> 돌아가면서 값 추출하는 것?
+    채널(Channel) -> 차원? : 흑백 1, 컬러 3
+    필터(Filter) -> 다음 입력 차원
+    커널(Kernel) -> 필터 = 커널 동일한 말이다
+    스트라이드(Stride) -> 지정된 간격으로 필터를 순회함
+    패딩(Padding) -> 외곽에 픽셀을 추가 : 전체를 둘러쌈
+    피처 맵(Feature Map) -> Activation Map : Filter + Stride 의 동작으로 작음
+    액티베이션 맵(Activation Map) -> Feature Map
+    풀링(Pooling) 레이어 -> 출력 데이터를 줄이거나, 강조 하는데 사용

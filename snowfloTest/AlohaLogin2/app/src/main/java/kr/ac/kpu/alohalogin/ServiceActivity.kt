@@ -10,6 +10,8 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_service.*
 
 // record audio, send data fragment
+
+// test용 BlankFragment 있음 -> 지울것.
 open class ServiceActivity : AppCompatActivity() {
     lateinit var mr: MediaRecorder
     var userId: String = "noNamed"
@@ -23,6 +25,7 @@ open class ServiceActivity : AppCompatActivity() {
         userEmail =  intent.getStringExtra("user_email").toString()
 
         val bottomSheetFragment = BottomSheetFragment()
+        val blankFragment = BlankFragment() // test용 BlankFragment
 
         log_out_button.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
@@ -30,7 +33,7 @@ open class ServiceActivity : AppCompatActivity() {
             finish()
         }
 
-        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //파일의 저장 위치
+        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //안드로이드내 파일 저장 위치
         //val fileUri = fromFile(File(path))
 
         mr = MediaRecorder()
@@ -59,16 +62,22 @@ open class ServiceActivity : AppCompatActivity() {
         stop_button.setOnClickListener{
             mr.stop()
             start_button.isEnabled = true //정지가 눌리면 시작버튼은 비활성화
+            stop_button.isEnabled = false
 
             var dataBundle = Bundle()
             dataBundle.putString("user_id", userId)
             dataBundle.putString("user_email", userEmail)
 
+
             //bottomSheetFragment.onCreateDialog(bundle)
+            /*
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
             bottomSheetFragment.setArguments(dataBundle)
+            */
 
-            stop_button.isEnabled = false
+            blankFragment.show(supportFragmentManager, "BottomSheetDialog")
+            blankFragment.setArguments(dataBundle)
+
         }
     }
 

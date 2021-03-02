@@ -1,0 +1,90 @@
+So we decided to try a little experiment of our own.
+1. We borrowed a Spoken Digit Dataset by Zohar Jackson
+2. Converted each audio file to an image
+3. Trained a CNN on these images
+4. Tested the model using a laptop’s microphone
+
+https://github.com/Jakobovski/free-spoken-digit-dataset
+
+Dataset Details
+A simple audio/speech dataset consisting of recordings of spoken digits in "wav files" at 8kHz.
+1) 4 male speakers with American accent
+2) 2,000 recordings (50 of each digit per speaker)
+3) English pronunciations
+
+1. Plotting the audio signal amplitude
+The first conversion that can be applied on any sound signal is to plot its samples’ amplitudes over time. 
+Since the dataset contains digits from 0 to 9 we have 10 different types of sounds. 
+9 of those are shown below.
+
+-1. /ˈsɛv
+-2. (ə)n/
+
+Since CNNs are hungry for images, we want to transform the sound into an image. 
+The audio signal can also be represented in yet another way. 
+Instead of plotting the audio signal amplitude with respect to time, we can also plot it with respect to frequency. 
+The plot we will make is called a spectrogram.
+
+시간에 따른 오디오 진폭 대신, 주파수에 따른 오디오 진폭 -> 스펙트로그램
+
+2. Plotting the spectrogram
+To plot the spectrogram we break the audio signal into millisecond chunks and compute Short-Time Fourier Transform (STFT) for each chunk. 
+We then plot this time chunk as a colored vertical line in the spectrogram.
+
+What is a spectrogram?
+Spectrograms represent the frequency content in the audio as colors in an image. 
+Frequency content of milliseconds chunks is stringed together as colored vertical bars. 
+Spectrograms are basically two-dimensional graphs, with a third dimension represented by colors.
+
+1. Time runs from left (oldest) to right (youngest) along the horizontal axis.
+2. The vertical axis represents frequency, with the lowest frequencies at the bottom and the highest frequencies at the top.
+3. The amplitude (or energy or “loudness”) of a particular frequency at a particular time is represented by the third dimension, color, with dark blues corresponding to low amplitudes and brighter colors up through red corresponding to progressively stronger (or louder) amplitudes.
+
+These spectrograms now become an image representation of our spoken digits. 
+Every digit audio corresponds to a spectrogram. 
+The hope is that spectrograms of 0’s sound would be similar across different speakers and genders. 
+We also hope that despite the difference in volume, pitch, timbre etc. 
+0 spoken by anyone should have similarities with other 0 sounds. 
+Same goes for the digits 1–9.
+
+A의 0과 B의 0이 비슷하기를 기대 -> 하지만 우리의 경우엔 -> 발음의 정도가 천차만별이라 기대가 힘듬
+
+3. Define the model layers
+
+2개의 이미지
+1. 오디오 시그널: Audio signal : Amplitude v/s Time
+
+2. 스펙트로그램: Spectrogram : Freqeuncy Content v/s Time
+
+1. Convolution layer with kernel size : 3x3
+2. Convolution layer with kernel size : 3x3
+3. Max Pooling layer with pool size : 2x2
+4. Dropout layer ---> ??????? 이건 없던 레이어 같은데
+5. Flattening layer
+6. 2 Dense layered Neural Network at the end
+
+==================딥 러닝의 문제==================
+Underfitting: 덜하다, 학습이 잘 안 됬다
+- Back propagation을 사용 : 뒤로 전달한다
+- activation function에서 전달할지, 말지를 결정하는데 이때 vanishing gradient이 발생할 수 있다
+-> ReLU 함수를 사용해 Underfitting 방지
+
+Slow: 늦다, 학습이 오래 걸린다
+
+Overfitting: 과하다, 융통성이 없다
+
+Training Data has 1800 labels corresponding to each of the images
+교육 데이터에는 각 이미지에 해당하는 1800개의 레이블이 있습니다.
+
+https://seamless.tistory.com/38 - 결국 Adam이 무엇인지에 관한 이야기
+
+Gradient Descent
+loss function의 현 weight의 기울기(gradient)를 구하고 loss를 줄이는 방향으로 업데이트
+스텝량: learning rate
+weight의 업데이트 = 에러 낮추는 방향 * 한발자국 크기 * 현 지점의 기울기
+	-> 데이터 전체를 넣어야 하는 비효율성
+Stochastic Gradeint Descent
+Mini batch라는 일부만 가지고 가자
+
+Adam: 방향도 스텝사이즈도 적절하게
+

@@ -46,6 +46,8 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
             userIdText.text=userId
             userEmailText.text=userEmail
             */
+            // fileName = "너가 작성한 텍스트" + "uploadFile에 있는 fileName 지우기"
+            checkName()
             checkNum()
             uploadFile()
             uploadData()
@@ -63,8 +65,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
     fun uploadData(){
         database = Firebase.database.reference
         database.child(userId).child("userId").setValue(userEmail)
-        database.child(userId).child("fileName").setValue(fileName)
-        database.child(userId).child("number").setValue(fileNum)
+        database.child(userId).child(fileName).child("number").setValue(fileNum) // "record" -> test를 위해 fileName
     }
 
     fun checkNum(){
@@ -73,8 +74,8 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
 
         val realtimeDBEvent1 = object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.child(userId).exists()){
-                    tempString = snapshot.child(userId).child("number").getValue().toString()
+                if(snapshot.child(userId).child(fileName).exists()){
+                    tempString = snapshot.child(userId).child(fileName).child("number").getValue().toString()
                     fileNum = tempString!!.toInt() + 1
                 }
                 else{
@@ -88,6 +89,10 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
 
         }
         database.addValueEventListener(realtimeDBEvent1)
+    }
+
+    fun checkName(){
+        fileName = "discord" //
     }
 
     fun uploadFile() {
@@ -122,7 +127,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
 
         // database.addChildEventListener(realtimeDBEvent2)
         // fileName = "record" + Random().nextInt(1000)
-        fileName = "record"+fileNum
+        // fileName = "discord"// fileName = record로 변경해야할듯
 
         var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //파일의 저장 위치
         val fileUri = Uri.fromFile(File(path))

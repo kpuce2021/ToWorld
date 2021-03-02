@@ -38,3 +38,7 @@ ServiceActivity
     코틀린 Expression?
 
 출처: https://readystory.tistory.com/143
+
+onCreateView vs onViewCreated
+
+출처: https://brunch.co.kr/@henen/21
