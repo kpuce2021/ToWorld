@@ -1,0 +1,8 @@
+    'apiKey': "AIzaSyA-WnQXEGePs3e1fr_dl3WBMyoXe9BMvDs",
+    'authDomain': "kpu-capstone---toworld.firebaseapp.com",
+    'databaseURL': "https://kpu-capstone---toworld-default-rtdb.firebaseio.com",
+    'projectId': "kpu-capstone---toworld",
+    'storageBucket': "kpu-capstone---toworld.appspot.com",
+    'messagingSenderId': "837067207822",
+    'appId': "1:837067207822:web:a906a4af8a62dc99bac5df",
+    'measurementId': "G-RK098Q1GW1"
