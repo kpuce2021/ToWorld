@@ -18,9 +18,10 @@
 > Python
 ##### 2. 라이브러리
 > TensorFlow   
-> RNNoise
+> OpenCV   
 ##### 3. O/S
-> Android
+> Android   
+> Pycharm
 ##### 4. 개발 도구
 > Android Studio
 ##### 5. 데이터베이스
