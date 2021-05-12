@@ -16,27 +16,32 @@ for filename in os.listdir(folder):
 
 import os
 import argparse
-
+import traceback
 from pydub import AudioSegment
 
 formats_to_convert = ['.m4a']
 
-for (dirpath, dirnames, filenames) in os.walk("D:/DDataSet/living_light_on/"):
+for (dirpath, dirnames, filenames) in os.walk('D:\\#2021_CAPSTONE\\_DataSet\\m4a_test_data'):
     for filename in filenames:
         if filename.endswith(tuple(formats_to_convert)):
+            print('dirpath',dirpath)
+            print('filenames',filenames)
 
-            filepath = dirpath + '/' + filename
+            filepath = dirpath + '\\' + filename
             (path, file_extension) = os.path.splitext(filepath)
             file_extension_final = file_extension.replace('.', '')
 
+            print('path',path)
             try:
-                track = AudioSegment.from_file(filepath,
-                                               file_extension_final)
+                print('filepath',filepath)
+                print('file_extension_final',file_extension_final)
+                track = AudioSegment.from_file(filepath, file_extension_final)
                 wav_filename = filename.replace(file_extension_final, 'wav')
                 wav_path = dirpath + '/' + wav_filename
                 print('CONVERTING: ' + str(filepath))
                 file_handle = track.export(wav_path, format='wav')
                 os.remove(filepath)
             except:
-                print("ERROR CONVERTING " + str(filepath))
+                print(traceback.print_exc())
+
 

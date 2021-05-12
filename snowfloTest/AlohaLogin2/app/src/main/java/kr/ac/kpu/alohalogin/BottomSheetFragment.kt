@@ -96,49 +96,16 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
     }
 
     fun uploadFile() {
-/*
-        val realtimeDBEvent2 = object : ChildEventListener{
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) { // 검색, 추가 대기
-                if(snapshot.exists()){ 
-                    
-                }else{
-
-                }
-            }
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) { // 변경 대기
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) { // 삭제 대기
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) { // 순서 변경 대기
-                TODO("Not yet implemented")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "fileNumbers:onCancelled", error.toException())
-                Toast.makeText(context, "Failed to load fileNumbers.",
-                        Toast.LENGTH_SHORT).show()
-            }
-        }
-*/
-
-        // database.addChildEventListener(realtimeDBEvent2)
-        // fileName = "record" + Random().nextInt(1000)
-        // fileName = "discord"// fileName = record로 변경해야할듯
-
+        
         var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //파일의 저장 위치
         val fileUri = Uri.fromFile(File(path))
-
-
+        
         if(fileUri!=null){
             var pd = ProgressDialog(context)
             pd.setTitle("업로딩 중")
             pd.show()
 
-            var mediaRef = FirebaseStorage.getInstance().reference.child(userEmail).child(fileName)
+            var mediaRef = FirebaseStorage.getInstance().reference.child(userEmail).child(fileName)  // firebase storage 위치 변경
             mediaRef.putFile(fileUri)
                     .addOnSuccessListener { p0 ->
                         pd.dismiss()
