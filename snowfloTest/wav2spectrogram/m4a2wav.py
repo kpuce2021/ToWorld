@@ -21,7 +21,7 @@ from pydub import AudioSegment
 
 formats_to_convert = ['.m4a']
 
-for (dirpath, dirnames, filenames) in os.walk('D:\\#2021_CAPSTONE\\_DataSet\\m4a_test_data'):
+for (dirpath, dirnames, filenames) in os.walk('D:/all'):
     for filename in filenames:
         if filename.endswith(tuple(formats_to_convert)):
             print('dirpath',dirpath)

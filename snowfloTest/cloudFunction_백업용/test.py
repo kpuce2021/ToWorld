@@ -14,7 +14,7 @@ from skimage.color import rgb2gray
 
 formats_to_convert = ['.m4a']
 def m4a2wav():
-    for (dirpath, dirnames, filenames) in os.walk("D:/#2021_CAPSTONE/_DataSet/m4a_test_data"): # 경로 변경해야 함.
+    for (dirpath, dirnames, filenames) in os.walk("D:/all"): # 경로 변경해야 함.
         for filename in filenames:
             if filename.endswith(tuple(formats_to_convert)):
 
