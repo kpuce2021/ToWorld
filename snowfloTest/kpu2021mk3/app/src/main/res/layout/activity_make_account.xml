@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".makeAccountActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALOHA\n계정 만들기"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:lineSpacingExtra="5dp"
+        android:id="@+id/make_account_text"
+        android:textColor="#000000"
+        >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/make_account_text"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/box"
+
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/round_edit_text_style"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="이름"
+                android:id="@+id/sign_up_input_first_name"
+                />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/round_edit_text_style"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="성"
+                android:id="@+id/sign_up_input_last_name"
+                />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:padding="15dp"
+            android:background="@drawable/round_edit_text_style"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="이메일"
+            android:id="@+id/sign_up_input_email"
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:padding="15dp"
+            android:background="@drawable/round_edit_text_style"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="아이디"
+            android:id="@+id/sign_up_input_id"
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:padding="15dp"
+            android:background="@drawable/round_edit_text_style"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="비밀번호"
+            android:id="@+id/sign_up_input_pswd"
+            />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="회원가입"
+        android:textSize="20dp"
+        android:layout_below="@id/box"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:background="@drawable/login_button_style"
+        android:id="@+id/sign_in_button"
+        />
+</RelativeLayout>

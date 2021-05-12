@@ -4,9 +4,6 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-android-extensions'
 }
-
-// com.android.application 에서 com.google.gms.google-services 를 포함?
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
