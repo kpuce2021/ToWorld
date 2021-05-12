@@ -1,5 +1,4 @@
 package com.example.myapplication
-
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
@@ -7,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import androidx.core.app.ActivityCompat
+import com.example.myapplication.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_service2.*
 
 open class ServiceActivity : AppCompatActivity() {
-    lateinit var mr: MediaRecorder  // MediaRecorder
+    lateinit var mr: MediaRecorder
     var userId: String = "noNamed"
     var userEmail: String = "noNamed"
 
@@ -23,18 +23,17 @@ open class ServiceActivity : AppCompatActivity() {
         userEmail =  intent.getStringExtra("user_email").toString()
 
         val bottomSheetFragment = BottomSheetFragment()
-        val blankFragment = BlankFragment() // test용 BlankFragment
 
-        log_out_button.setOnClickListener{  // 로그아웃 이벤트
+        log_out_button.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this@ServiceActivity,MainActivity::class.java))
+            startActivity(Intent(this@ServiceActivity, MainActivity::class.java))
             finish()
         }
 
-        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //안드로이드내 파일 저장 위치
+        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.3gp" //파일의 저장 위치
         //val fileUri = fromFile(File(path))
 
-        mr = MediaRecorder()  // init
+        mr = MediaRecorder()
         start_button.isEnabled = false
         stop_button.isEnabled = false
 
@@ -44,29 +43,30 @@ open class ServiceActivity : AppCompatActivity() {
         start_button.isEnabled = true
 
         //스타트 버튼 클릭
-        start_button.setOnClickListener{  // start
+        start_button.setOnClickListener{
             mr.setAudioSource(MediaRecorder.AudioSource.MIC)
-            mr.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)  //저장할 파일의 확장자를 정해주는 것 --> m4a
+            mr.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4) //저장할 파일의 확장자를 정해주는 것
             mr.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB)
             mr.setOutputFile(path)
             mr.prepare()
             mr.start()
             stop_button.isEnabled = true
             start_button.isEnabled = false
+
         }
 
         //정지 버튼 클릭
-        stop_button.setOnClickListener{  // stop
+        stop_button.setOnClickListener{
             mr.stop()
             start_button.isEnabled = true //정지가 눌리면 시작버튼은 비활성화
+
+            val bundle = Bundle()
+            bundle.putString("user_email", userEmail)
+            bundle.putString("user_id", userId)
+
+            bottomSheetFragment.arguments = bundle
+            bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
             stop_button.isEnabled = false
-
-            var dataBundle = Bundle()
-            dataBundle.putString("user_id", userId)
-            dataBundle.putString("user_email", userEmail)
-
-            blankFragment.show(supportFragmentManager, "BottomSheetDialog")
-            blankFragment.setArguments(dataBundle)
         }
     }
 

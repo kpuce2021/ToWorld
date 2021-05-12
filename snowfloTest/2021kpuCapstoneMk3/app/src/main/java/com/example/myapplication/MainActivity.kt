@@ -26,11 +26,9 @@ class MainActivity : AppCompatActivity() {
                 TextUtils.isEmpty(input_email.text.toString().trim() { it <= ' ' }) -> {
                     Toast.makeText(this@MainActivity,"이메일을 입력하시오", Toast.LENGTH_SHORT).show()
                 }
-
                 TextUtils.isEmpty(input_pswd.text.toString().trim() { it <= ' ' }) -> {
                     Toast.makeText(this@MainActivity,"비밀번호를 입력하시오", Toast.LENGTH_SHORT).show()
                 }
-
                 else -> {  // 로그인 체크
                     val email = input_email.text.toString().trim() { it <= ' ' }
                     val password = input_pswd.text.toString().trim() { it <= ' ' }
