@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 FIG_SIZE = (0.5,0.5) # FIG_SIZE * DPI
 
+# melsepctrogram
 file = "D:/#2021_CAPSTONE/_DataSet/spec_test_data/"
 for i in range(1,11):
     sig, sr = librosa.load(file +"g"+str(i)+".wav", sr=22050) # sampling rate 샘플링의 속도 ; 샘플링이란 아날로그 데이터에서 디지털 데이터를 추출하는 것 ; 즉 1초에 얼마나 읽는지 샘플링 레이트
