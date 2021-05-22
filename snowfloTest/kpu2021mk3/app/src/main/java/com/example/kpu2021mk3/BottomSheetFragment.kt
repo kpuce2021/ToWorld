@@ -55,7 +55,13 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
             Log.w(TAG, "click button : "+userText)
             uploadData()
             checkRealtimeDB()
+            textView.text = "정답"
         }
+    }
+
+    //debug
+    fun checkMeta(){  // metadata check
+
     }
 
     fun uploadData(){ //realtime DB
