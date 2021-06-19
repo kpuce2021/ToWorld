@@ -21,7 +21,7 @@ from pydub import AudioSegment  # ffmpeg 를 설정해야 함.
 
 formats_to_convert = ['.m4a']
 
-for (dirpath, dirnames, filenames) in os.walk('D:/#2021_CAPSTONE/_DataSet/sound_data/naerrow'):  # 상위 폴더
+for (dirpath, dirnames, filenames) in os.walk('D:/#2021_CAPSTONE/_DataSet/sound_test_data_pretreatment (spec)/prediction'):  # 상위 폴더
     # https://codechacha.com/ko/python-walk-files/
     # os.walk : for 로 어떤 경로의 모든 하위 폴더와 파일을 탐색
     for filename in filenames:
