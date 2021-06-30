@@ -42,9 +42,6 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-        var textFilter = Array<InputFilter>(1,{ValidateFilter(50)})
-        //user_input.filters = textFilter
-
         userEmail = arguments?.getString("user_email").toString()
         userId= arguments?.getString("user_id").toString()
 
@@ -69,6 +66,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
         fileName = userText
         database.child(userId).child("userId").setValue(userEmail)
         database.child(userId).child(fileName).child("checkKey").setValue("true")
+//        database.child(userId).child(fileName).child("fileName").setValue(fileName+".m4a")
     }
 
     fun checkRealtimeDB(){
@@ -89,7 +87,9 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
                     Log.w(TAG, "on data change entrance : ")
 
                     database.child(userId).child(fileName).child("checkKey").setValue("false")
-                    database.child(userId).child(fileName).child("number").setValue(previous_number)
+//                    database.child(userId).child(fileName).child("number").setValue(userEmail+"/"+fileName+previous_number+".m4a")  // input type error
+                    database.child(userId).child(fileName).child("number").setValue(previous_number)  // 변경 포인트
+
                     uploadFile(previous_number)
                 }
                 else{
@@ -129,39 +129,6 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
                         var progress =  (100.0 * p0.bytesTransferred) / p0.totalByteCount
                         pd.setMessage("업로드 됨 ${progress.toInt()} %")
                     }
-        }
-    }
-
-    inner class ValidateFilter(max:Int) : InputFilter {
-        internal var mPattern: Pattern
-        internal var mMax:Int = 0
-
-        init{
-            mPattern = Pattern.compile("[가-힣ㄱ-ㅎㅏ-ㅣ]")
-            mMax = max
-        }
-
-        override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned?, dstart: Int, dend: Int): CharSequence? {
-            val matcher = mPattern.matcher(source)
-            if(!matcher.matches()){
-                return ""
-            } else {
-                var keep = mMax - (dest!!.length - (dend - dstart))
-                if(keep <= 0){
-                    return ""
-                } else if (keep >= end - start) {
-                    return null
-                } else {
-                    keep += start
-                    if(Character.isHighSurrogate(source[keep - 1])){
-                        --keep
-                        if(keep == start) {
-                            return ""
-                        }
-                    }
-                    return source.subSequence(start,keep)
-                }
-            }
         }
     }
 }

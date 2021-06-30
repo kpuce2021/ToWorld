@@ -1,0 +1,140 @@
+# import tensorflow as tf
+# from tensorflow import keras
+# from tensorflow.python.keras.models import load_model
+# from keras.preprocessing import image
+# from PIL import Image
+
+from google.cloud import storage
+
+# download from storage
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
+    blob.download_to_filename(destination_file_name)
+
+# upload to storage
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    blob.upload_from_filename(source_file_name)
+
+    # print(
+    #     "File {} uploaded to {}.".format(
+    #         source_file_name, destination_blob_name
+    #     )
+    # )
+
+import os
+import sys
+from pydub import AudioSegment
+
+# convert m4a to wav
+def m4a2wav(file_path):
+    file_path_list = file_path.split('/')  # a/b/c/d [a,b,c,d]
+    file_name = file_path_list[-1]  # d
+
+    download_blob('kpu2021mk3-220df.appspot.com', file_path, '/tmp/'+ file_name)  # 가상공간에 /tmp/file_name 생성
+    virtual_file = '/tmp/'+ file_name  # 가상공간에 생성된 파일 이름 변경
+
+    (path, file_extension) = os.path.splitext(virtual_file)
+    # /tmp/file_name, .m4a
+    file_extension_final = file_extension.replace('.', '') # . 제거
+
+    track = AudioSegment.from_file(virtual_file, file_extension_final)
+    wav_filename = file_name.replace(file_extension_final, 'wav')
+    wav_path = '/tmp/'+wav_filename
+    file_handle = track.export(wav_path,format='wav')
+
+    # check용 upload
+    upload_blob('kpu2021mk3-220df.appspot.com', wav_path, 'check_wav_file.wav')
+
+    # 반환
+    return wav_path
+
+import librosa.display
+import librosa
+from matplotlib import pyplot as plt
+import numpy as np
+
+# wav2spec
+def wav2spec(filepath):
+    print("wav2spec 함수")
+
+    FIG_SIZE = (2.6, 2)
+
+    sig, sr = librosa.load(filepath, sr=22050)
+    plt.figure(figsize=FIG_SIZE)
+    plt.axis('off'), plt.xticks([]), plt.yticks([])
+    plt.tight_layout()
+    plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0) 
+
+    mel = librosa.feature.melspectrogram(sig, sr)  # mel spectrogram
+    P = librosa.power_to_db(mel, ref=np.max)  # log_mel spectrogram
+    librosa.display.specshow(P)
+    plt.imshow(P, cmap=plt.cm.rainbow, interpolation= 'bicubic')
+    
+    plt.savefig('/tmp/check1.png', bbox_inches=None, pad_inches=0)  # /tmp/check1.png로 저장
+    upload_blob('kpu2021mk3-220df.appspot.com', '/tmp/check1.png', 'check_wav2spec_file.png')
+
+import cv2
+
+# denoise
+def pre_denoise():
+    print("pre_denoise 함수")
+    img =cv2.imread('/tmp/check1.png')  # 가상환경에 저장한 것 불러옴
+    # print("pre_denoise img: " + img.shape)
+
+    FIG_SIZE = (2.6, 2)
+
+    dst = cv2.fastNlMeansDenoisingColored(img, None, 10, 10, 7, 21)
+
+    plt.figure(figsize=FIG_SIZE)
+    plt.axis('off'), plt.xticks([]), plt.yticks([])
+    plt.tight_layout()
+    plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)   
+    plt.imshow(dst, cmap=plt.cm.rainbow, interpolation= 'bicubic')
+    plt.savefig('/tmp/denoise.png', bbox_inches=None, pad_inches=0)  # /tmp/denoise.png로 저장
+
+    # check용 upload
+    upload_blob('kpu2021mk3-220df.appspot.com', '/tmp/denoise.png', 'check_denoise_file.png')
+
+# main
+def hello_gcs(event, context):
+    """Triggered by a change to a Cloud Storage bucket.
+    Args:
+         event (dict): Event payload.
+         context (google.cloud.functions.Context): Metadata for the event.
+    """
+
+    print('Bucket: {}'.format(event['bucket']))
+    print('File: {}'.format(event['name']))
+
+    # 시작 조건
+    formats_to_convert = ['.m4a']
+
+    file_path_list = event['name'].split('/')  # a/b/c/d [a,b,c,d]
+    file_name = file_path_list[-1]  # d
+
+    if file_name.endswith(tuple(formats_to_convert)):
+        # m4a2wav
+        wav_path = m4a2wav(event['name'])  # File
+        print("main_wav_path: " + wav_path)
+
+        # wav2spec
+        wav2spec(wav_path)
+        pre_denoise()
+        
+        # model 다운로드 
+        # download_blob('kpu2021mk3-220df.appspot.com', 'model/model3.h5', '/tmp/model3.h5')
+
+    else:
+        sys,exit("audio file isn't .m4a")
+
+# print('Event ID: {}'.format(context.event_id))
+# print('Event type: {}'.format(context.event_type))
+# print('Metageneration: {}'.format(event['metageneration']))
+# print('Created: {}'.format(event['timeCreated']))
+# print('Updated: {}'.format(event['updated']))

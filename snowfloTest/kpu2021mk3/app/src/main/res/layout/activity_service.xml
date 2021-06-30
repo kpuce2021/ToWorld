@@ -59,12 +59,41 @@
         android:text="녹음 시작"
         android:textSize="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         android:padding="10dp"
         android:background="@drawable/login_button_style"
         android:id="@+id/start_button"
         android:layout_gravity="center"
         />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/bigSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="0"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/smallSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="0"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="150dp"
