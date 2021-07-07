@@ -107,7 +107,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
 
     fun uploadFile(fileNumber:Int) { // storage
         Log.w(TAG, "uploadFile : "+userText)
-        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.m4a" //파일의 저장 위치
+        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/my_audio_file.m4a" //파일의 저장 위치
         val fileUri = Uri.fromFile(File(path))
 
         if(fileUri!=null){

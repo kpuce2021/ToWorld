@@ -9,11 +9,37 @@ import android.os.Environment
 import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_service.*
+import java.util.*
+import kotlin.concurrent.timer
 
 class ServiceActivity : AppCompatActivity() {
     lateinit var mr: MediaRecorder
     var userId: String = "noNamed"
     var userEmail: String = "noNamed"
+
+    private var time = 0
+    private var timetask: Timer? = null
+    
+    private fun time_start(){
+        timetask = timer(period = 10){
+            time++  // time 변수 1씩 증가
+            val sec = time / 100
+            val milli = time % 100
+            
+            runOnUiThread{  // UI 갱신
+                secTextView.text = "$sec"
+                milliTextView.text = "$milli"
+            }
+        }
+    }
+
+    private fun time_reset(){
+        timetask?.cancel()
+
+        time = 0
+        secTextView.text = "0"
+        milliTextView.text = "00"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +56,7 @@ class ServiceActivity : AppCompatActivity() {
             finish()
         }
 
-        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/myrec.m4a" //파일의 저장 위치
+        var path:String = Environment.getExternalStorageDirectory().toString() + "/Download/my_audio_file.m4a" //파일의 저장 위치
         //val fileUri = fromFile(File(path))
 
         mr = MediaRecorder()
@@ -50,6 +76,8 @@ class ServiceActivity : AppCompatActivity() {
             mr.setOutputFile(path)
             mr.prepare()
             mr.start()
+
+            time_start() // timer start
             stop_button.isEnabled = true
             start_button.isEnabled = false
 
@@ -58,6 +86,8 @@ class ServiceActivity : AppCompatActivity() {
         //정지 버튼 클릭
         stop_button.setOnClickListener{
             mr.stop()
+
+            time_reset() // timer reset
             start_button.isEnabled = true //정지가 눌리면 시작버튼은 비활성화
 
             val bundle = Bundle()

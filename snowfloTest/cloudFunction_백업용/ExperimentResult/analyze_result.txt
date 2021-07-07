@@ -1,0 +1,14 @@
+파이참으로 m4a -> wav를 실행한 결과 검은색이 증가함
+
+클라우드 펑션에서 좌상단이 검은색으로 변하는데 이는 파이참에서도 동일
+즉, 안드로이드에서 사용한 media recoder가 문제가 됨 --> 오디오 자체에 문제임
+
+android에서 제공하는 앱으로 녹음을 할 방법을 찾거나 (앱과 연동)
+혹은 media recoder로 따로 녹음을 다시 해야함
+
+현재는 good_morning과 tomorrow_weather를 구별하는데 이는
+ good_morning의 경우 좌상단이 검은색이 많고
+ tomorrow_weather의 경우 좌단이 검은색이 많은 양상을 보임
+ 하지만
+ working_path는 꽉 차있는데 android_wroking_path_result를 보면
+ 오디오 문제로 좌상단이 검은 것을 알 수 있음 --> 이는 good_morning이라는 결과로 귀결
