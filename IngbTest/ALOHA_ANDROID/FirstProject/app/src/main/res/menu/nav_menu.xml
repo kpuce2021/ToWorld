@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="토너먼트">
+        <menu>
+            <group
+                android:id="@+id/menu_tournament">
+                <item
+                    android:id="@+id/action_create_tournament"
+                    android:title="토너먼트 만들기" />
+                <item
+                    android:id="@+id/action_my_create_tournament"
+                    android:title="내가 만든 토너먼트"/>
+            </group>
+        </menu>
+    </item>
+    <item android:title="카테고리">
+        <menu>
+            <group
+                android:id="@+id/menu_category">
+                <item
+                    android:id="@+id/action_category_idol"
+                    android:title="연예인 / 아이돌 월드컵"/>
+                <item
+                    android:id="@+id/action_category_sport"
+                    android:title="스포츠 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_food"
+                    android:title="음식 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_game"
+                    android:title="게임 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_movie"
+                    android:title="영화 / 드라마 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_video_game"
+                    android:title="PC / 모바일 게임 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_animal"
+                    android:title="동물 / 식물 월드컵"/>
+
+                <item
+                    android:id="@+id/action_category_etc"
+                    android:title="기타"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="고객지원">
+        <menu>
+            <group
+                android:id="@+id/menu_help_service">
+                <item
+                    android:id="@+id/action_send_email_to_developer"
+                    android:title="개발자에게 메일 보내기"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>

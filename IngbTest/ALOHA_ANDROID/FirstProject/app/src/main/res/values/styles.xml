@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!-- appBar가 위에 뜨는 거 그 목록화면 같이 있는거가 APPBar야-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyStyle" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- 타이틀바 제거 & (보류) 상태바 컬러 : 빨간색으로 설정 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- 액션바 제거 -->
+        <item name="android:windowActionBar">false</item>
+        <!-- 앱이 켜질 때 미리보기 제거 -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,190 @@
+package kr.ac.kpu.api_test
+
+data class ExampleResponse(
+        val student: List<Student>
+)
+
+data class Student(
+        val studentId: Int,
+        val name: String,
+        val phone: String
+)
+
+
+
+
+
+____________________
+
+package kr.ac.kpu.api_test
+
+import retrofit2.http.GET
+import com.google.gson.JsonObject
+import retrofit2.Call
+import retrofit2.http.Query
+
+interface RetrofitAPI {
+    @GET("/")//서버에 GET요청을 할 주소를 입력
+    fun getStudent(@Query("school_id") schoolId: Int,
+                   @Query("grade") grade: Int,
+                   @Query("classroom") classroom: Int): Call<ExampleResponse>
+}
+
+
+
+________________
+
+
+
+   if request.method == "POST":
+        if "file" not in request.files:
+            print(request.files)
+            return "hello"
+
+        file = request.files["file"]
+        if file.filename == "":
+            return "hello"
+
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(filename)
+            wav2spec(filename)
+            pre_denoise(filename)
+            result_text = check_model(filename)
+
+            int_message = 1
+            print("Data uploading")
+            print(request.headers)
+            for v in request.values:
+                print(v)
+        
+            print("Uploading done")
+   
+    return {
+	            "result" : result_text
+            }
+		
+
+
+____________________________________
+
+
+import re
+import threading
+from flask import Flask, render_template, request, jsonify
+from werkzeug.utils import redirect
+from werkzeug.utils import secure_filename
+import os
+import speech_recognition as sr
+from functools import wraps
+import json
+from flask import Response
+
+from cnn_run import *
+import sqlite3 as sql
+
+
+
+app = Flask(__name__) #앱을 전역으로 선언
+app.config['JSON_AS_ASCII'] = False
+"""
+@app.route('/', methods=["GET","POST"]) #파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+def index():
+    print("hello2")
+    if request.method == "POST":
+
+        if "file" not in request.files:
+            print(request.files)
+            return redirect(request.url)
+
+        file = request.files["file"]
+        if file.filename == "":
+            return redirect(request.url)
+
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(filename)
+            wav2spec(filename)
+            pre_denoise(filename)
+            result_text = check_model(filename)
+
+    return render_template('record.html')
+   """ 
+
+@app.route('/', methods=["GET","POST"]) #파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+def index():
+    global result_text
+    con = sql.connect('db/result.db', isolation_level=None)
+    c = con.cursor()
+
+    if request.method == "POST":
+        file = request.files["file"]
+        filename = secure_filename(file.filename)
+        file.save(filename)
+        wav2spec(filename)
+        pre_denoise(filename)
+        result_text = check_model(filename)
+
+        c.execute("INSERT INTO result(id,result) values(?,?);",(2,result_text))
+
+        int_message = 1
+        print("Data uploading")
+        print(request.headers)
+        for v in request.values:
+            print(v)
+        
+        print("Uploading done")
+     
+    c.execute("SELECT result FROM result where id=2;")
+   
+    return { 
+    
+    "result" : str(c.fetchone())
+            
+    }
+    
+
+def as_json(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        res = f(*args, **kwargs)
+        res = json.dumps(res, ensure_ascii=False).encode('utf8')
+        return Response(res, content_type='application/json; charset=utf-8')
+    return decorated_function
+
+"""
+@app.route('/', methods=["GET","POST"])
+def index():
+    filename = "g_1.wav"
+    #return jsonify(text=check_model(filename))
+
+    return {
+	"student" : [
+		{
+			"student_id": 30410,
+			"name" : "홍길동",
+			"phone" : "010-12345-1234"
+		},
+		{
+			"student_id": 30411,
+			"name" : "고길동",
+			"phone" : "010-53455-1256"
+		},
+		{
+			"student_id": 30413,
+			"name" : "둘리",
+			"phone" : "010-35243-5345"
+		},
+		{
+			"student_id": 30414,
+			"name" : "아이유",
+			"phone" : "010-13352-5343"
+		}
+	]
+}
+"""
+
+
+if __name__ == '__main__':
+    app.run(host='119.207.193.93',debug=True, threaded=True)
+

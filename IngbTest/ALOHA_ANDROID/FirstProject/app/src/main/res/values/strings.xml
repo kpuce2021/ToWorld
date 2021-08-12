@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ALOHA</string>
+
+    <string name="WalkThroughMainText1">끌리는 피클을 고르고</string>
+    <string name="WalkThroughMainText2">더 좋은 후보를 PICK!</string>
+    <string name="WalkThroughMainText3">선택한 후보의 승률은?</string>
+    <string name="WalkThroughMainText4">당신이 만드는 피클!</string>
+
+    <string name="WalkThroughSubText1">다양한 카테고리의 주제들</string>
+    <string name="WalkThroughSubText2">다양한 카테고리의 주제들</string>
+    <string name="WalkThroughSubText3">다양한 카테고리의 주제들</string>
+    <string name="WalkThroughSubText4">다양한 카테고리의 주제들</string>
+    <string name="WalkThroughImageContentDescription">WalkThroughImage</string>
+    <string name="walkthrough_button">시작하기</string>
+    <string name="ranking">랭킹</string>
+    <string name="result">이상형 월드컵 결과</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="baseUrl">http://119.207.193.93:5000</string>
+</resources>

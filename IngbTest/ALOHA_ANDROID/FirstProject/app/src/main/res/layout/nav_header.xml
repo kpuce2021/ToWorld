@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    >
+
+    <!-- 신기하게 background에 이미지를 삽입하네, 원래 이미지가 아니라서 그런가봐 -->
+    <ImageView
+        android:id="@+id/main_user_image"
+        android:background="@drawable/ic_none_user_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/main_user_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="000님 반갑습니다."
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWordInColorPrimary"/>
+</LinearLayout>

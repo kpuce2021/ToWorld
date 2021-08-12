@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "849488870512",
+    "project_id": "aloha-flask",
+    "storage_bucket": "aloha-flask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849488870512:android:5067f7df46958fc01688b5",
+        "android_client_info": {
+          "package_name": "kr.ac.kpu.firstproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849488870512-518gnsl0bmpfre21ucnsa7f3ea3cfj9i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.kpu.firstproject",
+            "certificate_hash": "d05933ecf1fbeb882185f1ad3adec11ea18592c7"
+          }
+        },
+        {
+          "client_id": "849488870512-kga9h7e32jfp3k785nn0gmjhnc29hi92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXQ1X_Wvj7LYeLtWR4KKrWOdwcGzbi_O4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849488870512-kga9h7e32jfp3k785nn0gmjhnc29hi92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

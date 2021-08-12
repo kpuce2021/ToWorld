@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="여기는 피드백 창이 뜰 예정"
+        android:fontFamily="@font/bamin"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:id="@+id/feedback"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:lines="3"
+        android:maxLines="3"
+        android:background="@drawable/round_edit_text_style"
+        android:fontFamily="@font/bamin"
+        android:textColor="#000000"
+        android:hint="텍스트를 입력하시오"
+        android:id="@+id/user_input"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bamin"
+        android:textStyle="bold"
+        android:text="입력"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/login_button_style"
+        android:id="@+id/request_button"
+        />
+
+</LinearLayout>

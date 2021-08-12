@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/colorWordInColorPrimary"
+    tools:context=".ui.TournamentCreatePopupActivity">
+
+    <TextView
+        android:id="@+id/tournament_create_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="음식 이상형 월드컵"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextForNotPushRoundButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tournament_create_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="12dp"
+        android:text="진행하실 토너먼트 수를 선택해주세요!"
+        android:textColor="@color/colorTextForNotPushRoundButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tournament_create_category" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tournament_round_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tournament_create_notice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/tournament_create_8_bt"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="8강"
+            android:textSize="30dp"
+            android:textColor="@color/colorWordInColorPrimary"
+            android:textStyle="bold"
+            android:background="@drawable/push_button_border_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/tournament_create_16_bt"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="5dp"
+            android:text="16강"
+            android:textSize="30dp"
+            android:textColor="@color/colorTextForNotPushRoundButton"
+            android:background="@drawable/button_border_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tournament_create_8_bt"/>
+
+        <Button
+            android:id="@+id/tournament_create_32_bt"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="5dp"
+            android:text="32강"
+            android:textSize="30dp"
+            android:textColor="@color/colorTextForNotPushRoundButton"
+            android:background="@drawable/button_border_line"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tournament_create_64_bt"
+            app:layout_constraintStart_toStartOf="@+id/tournament_create_8_bt" />
+
+        <Button
+            android:id="@+id/tournament_create_64_bt"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="5dp"
+            android:text="64강"
+            android:textSize="30dp"
+            android:textColor="@color/colorTextForNotPushRoundButton"
+            android:background="@drawable/button_border_line"
+            app:layout_constraintStart_toStartOf="@+id/tournament_create_16_bt"
+            app:layout_constraintTop_toBottomOf="@+id/tournament_create_16_bt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/tournament_create_bt"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:text="시작하기"
+        android:textColor="@color/colorWordInColorPrimary"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:background="@drawable/push_button_border_line"
+        app:layout_constraintTop_toBottomOf="@id/tournament_round_container"
+        app:layout_constraintStart_toStartOf="@+id/tournament_round_container"
+        app:layout_constraintEnd_toEndOf="@+id/tournament_round_container"/>
+
+    <TextView
+        android:id="@+id/tournament_create_caution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="주의사항주의사항주의사항주의사항"
+        android:textColor="@color/colorTextForCaution"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tournament_create_bt"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tournament_create_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:id="@+id/main_application_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이상형 월드컵 만들기"
+                android:textStyle="bold"
+                android:textColor="@color/colorWordInColorPrimary"
+                android:textSize="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/tournament_create_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tournament_create_toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.TournamentCreateActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tournament_create_inform_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tournament_create_inform_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="이상형 월드컵 정보입력"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/tournament_create_title_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/button_border_line"
+                    android:ems="10"
+                    android:hint="제목을 입력하세요."
+                    android:textSize="15dp"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="@id/tournament_create_inform_text"
+                    app:layout_constraintTop_toBottomOf="@id/tournament_create_inform_text"/>
+
+                <EditText
+                    android:id="@+id/tournament_create_intro_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:background="@drawable/button_border_line"
+                    android:ems="10"
+                    android:hint="소개를 입력하세요."
+                    android:textSize="15dp"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="@+id/tournament_create_title_et"
+                    app:layout_constraintTop_toBottomOf="@+id/tournament_create_title_et" />
+                <LinearLayout
+                    android:id="@+id/tournament_create_access_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/tournament_create_intro_et"
+                    app:layout_constraintTop_toBottomOf="@+id/tournament_create_intro_et">
+                    <Button
+                        android:id="@+id/tournament_create_public_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/push_button_border_line"
+                        android:text="전체공개"
+                        android:textColor="@color/colorWordInColorPrimary"/>
+
+                    <Button
+                        android:id="@+id/tournament_create_private_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_border_line"
+                        android:text="비공개"
+                        android:textColor="@color/colorTextForNotPushButton"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tournament_create_passwd_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="2"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tournament_create_access_container"
+                    app:layout_constraintStart_toStartOf="parent">
+                    <EditText
+                        android:id="@+id/tournament_create_passwd_et"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+                        android:background="@drawable/button_border_line"
+                        android:ems="10"
+                        android:hint="비밀번호 입력"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tournament_create_image_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="사진 업로드"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tournament_create_inform_container"
+                app:layout_constraintTop_toBottomOf="@+id/tournament_create_inform_container"/>
+
+            <LinearLayout
+                android:id="@+id/tournament_create_image_layout_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/tournament_create_image_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="vertical">
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="생성하기"
+        android:textSize="25dp"
+        android:textColor="@color/colorWordInColorPrimary"
+        android:background="@drawable/push_button_border_line"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
