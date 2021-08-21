@@ -43,8 +43,10 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         userEmail = arguments?.getString("user_email").toString()
-        userId= arguments?.getString("user_id").toString()
+        userEmail = userEmail.split(".")[0]
+//        userId= arguments?.getString("user_id").toString()
 
+        // android --> firebase : 데이터 전송
         select_button.setOnClickListener { // debug 필요한 구문
 
             userText = user_input.text.toString().trim()
@@ -60,12 +62,20 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
     fun checkMeta(){  // metadata check
 
     }
+    
+    /*
+        upload data에서 userId, userId - fileName - checkKey : True setting
+        
+        checkRealtimeDB에서 userId - fileName - checkKey : True일 경우 False setting으로 2회차 막음
+     */
 
     fun uploadData(){ //realtime DB
         Log.w(TAG, "uploadData : "+userText)
         fileName = userText
-        database.child(userId).child("userId").setValue(userEmail)
-        database.child(userId).child(fileName).child("checkKey").setValue("true")
+        database.child(userEmail).child("userId").setValue(userEmail+".com")
+        database.child(userEmail).child(fileName).child("checkKey").setValue("true")
+//        database.child(userEmail).child("userId").setValue(userEmail)
+//        database.child(userEmail).child(fileName).child("checkKey").setValue("true")
 //        database.child(userId).child(fileName).child("fileName").setValue(fileName+".m4a")
     }
 
@@ -75,20 +85,22 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
                 var previous_number:Int = 0
 
                 // 숫자 체크 코드
-                if(snapshot.child(userId).child(fileName).child("checkKey").getValue().toString().equals("true")){  //추후에 변경할 예정임.
+                // filename - check key : true 일 경우
+                // userId --> userEmail
+                if(snapshot.child(userEmail).child(fileName).child("checkKey").getValue().toString().equals("true")){  //추후에 변경할 예정임.
                     Log.w(TAG, "on data change entrance if : "+userText)
                     Log.w(TAG, "on data change entrance : "+snapshot.child(userId).child(fileName))
 
-                    if(snapshot.child(userId).child(fileName).child("number").exists()){
-                        previous_number = snapshot.child(userId).child(fileName).child("number").getValue().toString().toInt() + 1 }
+                    if(snapshot.child(userEmail).child(fileName).child("number").exists()){
+                        previous_number = snapshot.child(userEmail).child(fileName).child("number").getValue().toString().toInt() + 1 }
                     else{
                         previous_number = 0 }
-                    Log.w(TAG, "on data change entrance : "+snapshot.child(userId).child(fileName).child("number"))
+                    Log.w(TAG, "on data change entrance : "+snapshot.child(userEmail).child(fileName).child("number"))
                     Log.w(TAG, "on data change entrance : ")
 
-                    database.child(userId).child(fileName).child("checkKey").setValue("false")
+                    database.child(userEmail).child(fileName).child("checkKey").setValue("false")
 //                    database.child(userId).child(fileName).child("number").setValue(userEmail+"/"+fileName+previous_number+".m4a")  // input type error
-                    database.child(userId).child(fileName).child("number").setValue(previous_number)  // 변경 포인트
+                    database.child(userEmail).child(fileName).child("number").setValue(previous_number)  // 변경 포인트
 
                     uploadFile(previous_number)
                 }
@@ -115,7 +127,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
             pd.setTitle("업로딩 중")
             pd.show()
 
-            var mediaRef = FirebaseStorage.getInstance().reference.child("audio").child(userEmail).child(fileName).child(fileName+fileNumber+ ".m4a")
+            var mediaRef = FirebaseStorage.getInstance().reference.child("audio").child(userEmail+".com").child(fileName).child(fileName+fileNumber+ ".m4a")
             mediaRef.putFile(fileUri)
                     .addOnSuccessListener { p0 ->
                         pd.dismiss()

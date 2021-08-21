@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_make_account.*
 
+// sign up account
 class makeAccountActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth

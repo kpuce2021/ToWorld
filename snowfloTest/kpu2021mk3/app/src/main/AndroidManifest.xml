@@ -5,6 +5,7 @@
     <!-- 안드로이드 버전이 높으면 이것이 필요함 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>-->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- https://darkstart.tistory.com/66 -->

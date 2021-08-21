@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 https://we-always-fight-with-code.tistory.com/99
  */
 
+
+// Main
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

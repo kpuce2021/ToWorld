@@ -1,0 +1,44 @@
+링크: https://youtu.be/u2KnTZa1_WU
+
+#  flask 기본 포트는 5000
+
+#  Flask & Django  Flask로 사용하는 추세
+
+#  폴더 구조
+    - static :: 정적 파일이 존재하는 곳
+        -
+        -
+        -
+    - templates :: html이 존재하는 곳
+        -
+    - __init__.py :: 웹 애플리케이션 구동 -- main이자 핵심
+        - class 호출 시 자동 실행
+        - module 호출 시 자동 실행 -- import만 되도 실행
+
+#  개념
+    - MVC
+        - model
+        - view  :: template
+        - controller
+    - MVVR
+        - R :: router -- request를 받아 어떤 model을 실행할지
+    - MC
+
+# 요청 (포트)
+    - mysql port: 3306
+    - flask port: 5000
+        - 포트 정보를 넣고싶지 않다면 80으로 교체
+
+# Global Object : g
+    - g :: 전역변수
+    - app.debug = True
+
+# 요청
+    - request :: 보냄
+        - method :: 특정으로 처리
+        - get :: args
+        - post :: form
+        - get/post :: values
+    - response :: 받음
+    - route
+        - <변수>
