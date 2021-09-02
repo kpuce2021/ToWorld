@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 FIG_SIZE = (2.6, 2)
 
 # 저장된 wav 디렉토리, 후에 처리 과정 없으므로 /를 붙여줄 것
-file_directory = "D:/#2021_CAPSTONE/_DataSet/sound_data_original (m4a)/snowflo_m4a/tomorrow_weather"
+file_directory = "E:/##kpu_capstone_voice_data/youtube_dongbinna_u"  # 경로만 변경
 formats_to_convert = ['.wav']
 
 import os
@@ -34,5 +34,5 @@ for (dirpath, dirnames, filenames) in os.walk(file_directory):  # 상위 폴더
 
             filename = filename.split('.')
 
-            plt.savefig('D:/#2021_CAPSTONE/_DataSet/sound_data_original (m4a)/test_wav2spec/tomorrow_weather/' + filename[0] + '.png', bbox_inches=None,
+            plt.savefig('E:/##kpu_capstone_voice_data/#spec_data/youtube_dongbinna_u/' + filename[0] + '.png', bbox_inches=None,
                         pad_inches=0)

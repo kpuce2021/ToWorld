@@ -76,21 +76,23 @@ def convolution():
 
         # if 가져온 user_email의 존재 유무 체크(table 명의 존재 유무)
         c.execute("SELECT COUNT(*) FROM result_table WHERE email=? AND result=?;", (email, answer))
+        # 0 NoN NoN
+
         isThere = c.fetchone()[0]
 
         if(isThere > 0):                # 이미 존재
             path = "D:/#2021_CAPSTONE/_DataSet/model/user/" + email + "/" + answer
 
-            if(isThere % 5 == 0):       # % [데이터 개수] --> 조절하면 됨.
+            if(isThere % 5 == 0):       # % [데이터 개수] --> 조절하면 됨. 50개 하려면 49로
                 print("학습 시작 {}".format(isThere))       # 이전 데이터 사용하지 않을 방법을 찾아야 함.
                 result_text = "학습중 입니다."
-        else:                           # 기존에 존재하지 않음
-            path = "D:/#2021_CAPSTONE/_DataSet/model/user/"+email+"/"+answer
-            os.makedirs(path)
+        else:                           # 기존에 존재하지 않음 == 0
+            path = "D:/#2021_CAPSTONE/_DataSet/model/user/" + email + "/" + answer
+            os.makedirs(path)       # 폴더 여러개 생성
 
         c.execute("INSERT INTO result_table(id, email, result) VALUES (?, ?, ?);", (isThere + 1, email, answer))
 
-        filename = answer + str(isThere+1)+".wav"
+        filename = answer + str(isThere+1) + ".wav"
         print(filename)
 
         file.save(path + "/" + filename)
