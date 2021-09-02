@@ -5,11 +5,11 @@ from matplotlib import pyplot as plt
 
 # https://jvvp.tistory.com/1018
 # 결과 저장 폴더 생성
-def random_image():
+def random_image(path, pfilename):
     for i in range(NUM_SAMPLES):
         # 랜덤 이미지를 생성합니다.
         img1 = cv2.imread(
-            "E:/##kpu_capstone_voice_data/#spec_data_remove_noise/call_sangho/unnoisedcall_sangho (1).png")
+            path + "/" + pfilename)
         img2 = cv2.imread("E:/##kpu_capstone_voice_data/#spec_data_augment/call_sangho/test0.png")
 
 ## 영역 지정
@@ -37,24 +37,20 @@ def random_image():
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, hspace=0, wspace=0)
 
         plt.imshow(img1, cmap=plt.cm.rainbow, interpolation='bicubic')
-        plt.savefig('E:/##kpu_capstone_voice_data/#spec_data_augment/call_sangho/tt'+str(i)+".png",
+        plt.savefig('E:/##kpu_capstone_voice_data/#spec_data_augment/call_sangho/'+pfilename+str(i)+".png",
                     bbox_inches=None, pad_inches=0)
 
+import os
+
 if __name__ == '__main__':
-    # 이미지 파일 개수를 정의
-    NUM_SAMPLES = 10
+    NUM_SAMPLES = 10            ## 이미지 파일 개수를 정의
     FIG_SIZE = (2.6, 2)
 
     # 랜덤
     random.seed()
 
-    random_image()
+    file_directory = "E:/##kpu_capstone_voice_data/#spec_data_remove_noise/call_sangho/"     ## 폴더명 변경
 
-
-
-
-
-
-
-
-
+    for (dirpath, dirnames, filenames) in os.walk(file_directory):
+        for filename in filenames:
+            random_image(file_directory, filename)
