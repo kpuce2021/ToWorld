@@ -7,7 +7,7 @@ from pydub import AudioSegment
 formats_to_convert = ['.m4a']
 
 # file_directory - 파일을 가진 상위 디렉토리
-file_directory = 'D:/#2021_CAPSTONE/_DataSet/sound_data_original (m4a)'
+file_directory = 'C:/Users/jaehee/Desktop/음성녹음파일(박재희)_복사/뭉게짐/굿모닝'
 
 # 변환
 for (dirpath, dirnames, filenames) in os.walk(file_directory):  # 상위 폴더

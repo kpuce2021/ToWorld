@@ -66,7 +66,7 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
             .addFormDataPart("file", "myrec.wav", File(fileName).asRequestBody("audio/wav".toMediaType()))
             .build()
 
-        val request = Request.Builder().url("http://119.207.193.93:5000/").post(requestBody).build()
+        val request = Request.Builder().url("http://172.30.1.55:5000/predict").post(requestBody).build()
 
         val call = mOkHttpClient.newCall(request)
 
@@ -107,7 +107,7 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         //레트로핏으로 가져올 url설정하고 세팅
         mRetrofit = Retrofit
             .Builder()
-            .baseUrl(getString(R.string.baseUrl))
+            .baseUrl("http://172.30.1.55:5000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

@@ -1,0 +1,498 @@
+[33mcommit 398c70f7450830f6d4d739bf929b5d65bc03b611[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: jaehee3505 <jaehee3505@naver.com>
+Date:   Mon Sep 6 02:00:01 2021 +0900
+
+    revise
+
+[33mcommit 15f2b3dc5701b6773679e17213c7ae1fc0f96eb7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Sep 2 22:18:39 2021 +0900
+
+    augment 반복 추가
+
+[33mcommit c884fc1c5ea055f43debefed6e4f6ea9247bf8db[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Sep 2 21:46:19 2021 +0900
+
+    specAugment by openCV
+
+[33mcommit 7c4d7b2dfc3793fc4cf451ffd0aed62d1dc56d20[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sat Aug 21 23:10:32 2021 +0900
+
+    python 서버 학습모드, 예측모드 구현 완료
+    
+    학습모드는 model을 추가로 학습할 방법을 고완해야 함
+
+[33mcommit b63aca099a4320b5b3564ecde3bb2e11bbd6071d[m
+Author: ingbox01 <ingbox01@gmail.com>
+Date:   Tue Aug 17 16:46:40 2021 +0900
+
+    Ingb_0817
+    작품설명서 업로드
+
+[33mcommit 0d7cd7f4332b456ba50a7aadbaf41effa8989a08[m
+Author: ingbox01 <ingbox01@gmail.com>
+Date:   Thu Aug 12 15:41:49 2021 +0900
+
+    INGB_0812
+    FLASK + ANDROID + DOC
+
+[33mcommit 50b5454479c6fedd44862ebd665a82d0565ec05c[m
+Author: ingbox01 <ingbox01@gmail.com>
+Date:   Thu Aug 12 15:27:07 2021 +0900
+
+    0812 수정
+    파일 정리
+
+[33mcommit ac43b3414889016089db40eb932b38ea0d156f66[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed Jul 7 18:01:13 2021 +0900
+
+    pycharm & cloud function test end
+    
+    결과는 snowflo -> cloudfunction -> experimentresult의 메모장 참조
+
+[33mcommit 24446eec9714e4bd47c615472daa7cb1f04ed8a4[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Jul 1 01:31:13 2021 +0900
+
+    cloud function backup & android backup
+    
+    클라우드 펑션은 현재 GCP 사용중이며 remove noise까지 진행 하지만 입력시
+    스펙트로그램이 좌상단측이 검은색이 되는 문제 해결 필요
+    
+    android는 3초를 재기위해 스탑워치를 설계할 필요가 있을것 같음
+
+[33mcommit fa79335bc0413f775f47f07bcbfe52000667c369[m
+Author: snowflo <66053685+snowflo@users.noreply.github.com>
+Date:   Thu Jun 24 21:10:19 2021 +0900
+
+    Create google_drive_link
+
+[33mcommit 4bc55fef587e20060e10af638b335f120e27b106[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Jun 24 05:04:06 2021 +0900
+
+    공부할 모델 백업
+
+[33mcommit 0c21e7c113f6bcf3cb44bfd1c797418af47f1775[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Jun 24 03:31:32 2021 +0900
+
+    code backup 쥬피터
+    
+    오디오 전처리 파트
+
+[33mcommit e1ba74d4d1b550cf547a90d3782f1d17c50db95e[m
+Author: jaehee3505 <jaehee3505@naver.com>
+Date:   Thu Jun 24 03:19:23 2021 +0900
+
+    commit test
+    del comits and update
+
+[33mcommit 9b274ed3ab40e3d0a7b63a31e9ea5276e58fecdc[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sat Jun 19 15:32:15 2021 +0900
+
+    프로젝트 일정 액셀파일 추가 및 기타 업데이트
+    주요 내용: 프로젝트 일정 액셀파일 추가
+
+[33mcommit 953a6333c84bbedd7c5009430c5d5ee9079097a0[m
+Author: jaehee3505 <jaehee3505@naver.com>
+Date:   Fri Jun 18 17:07:50 2021 +0900
+
+    0404(conn_test) changed
+    add new code
+
+[33mcommit 5446806e5d7793d5f6cdde1b5cdfdfc1860f6342[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sun May 23 20:17:15 2021 +0900
+
+    tensorflow-gpu, nvidia, cuda, cudadnn 설치완료
+
+[33mcommit 9f664272c0a2c8cf0b10f8071cd42c853cf1f16d[m
+Author: jaehee3505 <jaehee3505@naver.com>
+Date:   Sun May 23 03:11:18 2021 +0900
+
+    new code update
+    log mel test spectorgram
+
+[33mcommit f1a816d184c75e6d457c1658ea534245c4cfaaac[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sat May 22 22:34:51 2021 +0900
+
+    mfcc - backup
+    
+    mfcc - backup
+
+[33mcommit ae04e74fa06882216bb0efae551ec3a83f894daf[m
+Author: ingbox01 <ingbox01@gmail.com>
+Date:   Sat May 22 22:19:02 2021 +0900
+
+    ingb_0522
+
+[33mcommit db79c185c373b07c233ed0db065683bdc3645842[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sat May 22 11:42:17 2021 +0900
+
+    m4a2wav file cloudfunction 백업에 추가
+    
+    m4a2wav file cloudfunction에 추가 ffmpeg 설치후 사용
+
+[33mcommit 194b11d22301cfcd8e6ed341a06fffb2aee92ec6[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu May 13 02:55:11 2021 +0900
+
+    인증, 리얼디비, 스토리지 완료
+    
+    1) 모델을 어떻게 할지 고민 (카톡에 남겨둠 '아이디어'로 검색)
+    2) cloud function -> android phone으로 해야됨
+
+[33mcommit 4d6af2f84a884d131f514467d186a800e1f12fa0[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu May 13 02:28:20 2021 +0900
+
+    sdk 에러 해결 완료, 회원 가입 완료
+
+[33mcommit 32deec7dcf0c115708f993e4662f772fafad0b4d[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu May 13 01:43:58 2021 +0900
+
+    android studio gradle 파일 + google.json 정립 완료
+     -1) gradle 파일 정말 중요하게 볼 것 : default랑 많이 다를수 있음
+     -2) google.json 파일
+     -3) sha1 값
+
+[33mcommit b99e258cfcb53ed69c18a27b03eb25cffa8d31ea[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu May 13 00:31:37 2021 +0900
+
+    2021kpuCapstoneMk3 gradle error
+    170개 이상 발생으로 시간 관계상 새로운 프로젝트로 생성
+    2021kpuCapstoneMk3 는 폐지 바람
+    의심사항: firebase와 연동이 잘 안 되었음
+
+[33mcommit 9f32915e0aeabb5687f94d811a4ecbe9440f2ac9[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed May 12 23:23:56 2021 +0900
+
+    새봄조아
+
+[33mcommit a9c00d887f96f42bb11348fce88b5b8d0bc3ed27[m
+Author: jaehee3505 <jaehee3505@naver.com>
+Date:   Wed May 12 23:18:42 2021 +0900
+
+    cnn 테스트 모델 및 테스트 코드
+    연습 파일
+
+[33mcommit 58ed6da612bcfadcb105b0e51a0266451d318e0e[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed May 12 19:26:37 2021 +0900
+
+    Andoroid Project 재생성
+    
+    google cloud platform의 기간 만료로 프로젝트 변경
+    기존 android project에서 firebase만 변경하려 하였으나 sha1의 파트에서
+    에러 발생 --> 부득이하게 재생성
+
+[33mcommit dc9109a2b3e8128ad23a093052612b1faf8fb4a7[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed May 12 03:45:49 2021 +0900
+
+    m4a to wav를 해주는 test.py 추가
+    
+    필요조건
+    ffmpeg 설치: https://m.blog.naver.com/chandong83/222095346417
+    ffmpeg 파일은 용량상 생략
+
+[33mcommit 69f19fb2473d12ca6290012dc145ebd10a05985f[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sun May 9 18:56:17 2021 +0900
+
+    3차 수행보고서 발표자료 업로드 완료 보고서/'보고서 파일 이름' 의 형태로
+    사용
+
+[33mcommit aeafe70e913e797cc680f8547a840a2ab931e5cd[m
+Author: snowflo <g175151@gmail.com>
+Date:   Sat May 8 15:16:24 2021 +0900
+
+    cloud function의 함수 내역 .py로 백업
+
+[33mcommit 3921ee28ee37fa891e7b3e95c07cd48f6c064899[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Fri Mar 5 15:36:30 2021 +0900
+
+    Update README.md
+
+[33mcommit f2f62c259c96e3ad7dd741ee582f962015cd60e4[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed Mar 3 13:59:21 2021 +0900
+
+    firebase CLI install complete, independent binary version
+
+[33mcommit e6e8ba83cf493df9b75e4fb47a709342027abdcf[m
+Author: snowflo <g175151@gmail.com>
+Date:   Tue Mar 2 14:16:20 2021 +0900
+
+    android - firebase : realtimeDB 구조 및 storage 구조 구현 완료 추가작업: python에서 realtimeDB의 변화를 인식할 수 있도록 하는 것
+
+[33mcommit fd916381cac94f95132609ed000f4540671d9416[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Feb 18 13:26:56 2021 +0900
+
+    record file numbering complete by realtime DB
+
+[33mcommit b36ffde6a60312582bd139ac4e9d8927a9254363[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed Feb 17 16:35:55 2021 +0900
+
+    firebase - android 연동 완료, file이름 저장 방식 수정 필요
+
+[33mcommit e8b294a8601b25cecdee3429156a89f5b9db7a86[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 17:07:23 2021 +0900
+
+    git submodule issue resolve
+
+[33mcommit f9c49eff65307ba6f13c9cde7caa813efb638b3a[m
+Author: ingbox <ingb_@naver.com>
+Date:   Mon Feb 15 16:59:36 2021 +0900
+
+    kpu_0215
+
+[33mcommit 73a0f4065bdfb06a3c9e5859262e2e148b569d93[m
+Author: ingbox <ingb_@naver.com>
+Date:   Mon Feb 15 16:46:02 2021 +0900
+
+    version_0215
+
+[33mcommit 80d73c70ca08817f8e9518ddfb4928f042f8cdb4[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 16:38:32 2021 +0900
+
+    remove submodule .git
+
+[33mcommit 7140baf6190dc9194c4d39acdce01a799f00f22c[m
+Author: ingbox <ingb_@naver.com>
+Date:   Mon Feb 15 16:28:26 2021 +0900
+
+    version_0215
+
+[33mcommit 3727654c0a550aa363df1a21075adfb9933f78fd[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 16:13:44 2021 +0900
+
+    rollback
+
+[33mcommit 8b0a1c474b7b08fe7dbaf7e7073d3e751f7b2b64[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 16:11:14 2021 +0900
+
+    rollback
+
+[33mcommit 235bf51a07d88c39701d56d9da949dfb0187bf58[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 16:09:11 2021 +0900
+
+    rollback
+
+[33mcommit aa6c55a16ddd3bcbe9d41c01d75e810bf70c9634[m
+Author: ingbox <ingb_@naver.com>
+Date:   Mon Feb 15 16:02:39 2021 +0900
+
+    ingb
+
+[33mcommit 9db64291e5f9a74722b29ab20ad80dffda172658[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 15 15:31:07 2021 +0900
+
+    github checkout branch test
+
+[33mcommit 6e2f741396bcd7d7d497fdaa5d89220f1f602683[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Tue Feb 9 11:41:59 2021 +0900
+
+    CNN_Keras_Test
+    
+    케라스로 정확도 테스트
+
+[33mcommit cc9068c700682c112f770d0ff56c303fec89d6af[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Feb 4 18:08:31 2021 +0900
+
+    wav2spec, remove noise 수정
+
+[33mcommit b871121be44dc5fc19844f2f4e07b257e94ba099[m
+Author: snowflo <g175151@gmail.com>
+Date:   Thu Feb 4 17:09:17 2021 +0900
+
+    wav2spectorgram mel방식으로 변경
+
+[33mcommit 138c028eaf051f6ffe0aaa2d6e00c5f0bb63b202[m
+Author: snowflo <g175151@gmail.com>
+Date:   Wed Feb 3 15:13:12 2021 +0900
+
+    wav2spectrogram test, opencv noise reduction test
+
+[33mcommit 65d2df7431b94464119f66a7c60e975fa71766eb[m
+Author: snowflo <g175151@gmail.com>
+Date:   Tue Feb 2 16:07:42 2021 +0900
+
+    m4a2wav test: 로컬 폴더내에서만 작업이라, firebase와는 고려 필요
+
+[33mcommit 97b0cf41185d5202887da20ea6a824e93433fb4a[m
+Author: snowflo <g175151@gmail.com>
+Date:   Tue Feb 2 13:21:41 2021 +0900
+
+    wav2spectrogram test
+
+[33mcommit 13bf9bc23a27931105899f34b6fabaed9e394cd1[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 1 12:53:29 2021 +0900
+
+    PyTest02_01 재업 시도
+
+[33mcommit d0b81720b7b73fbc239a054d2a70f40ec1d59470[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 1 12:42:30 2021 +0900
+
+    푸쉬 오류 발생으로 PyTest02_01 삭제
+
+[33mcommit d56a435ebefeb12dc8e1c94ecd3a02d78fd99740[m
+Author: snowflo <g175151@gmail.com>
+Date:   Mon Feb 1 12:33:54 2021 +0900
+
+    cnn & spectrogram test file
+
+[33mcommit d52839b485013df370a7f35e2cad61a0a758ae1c[m
+Author: snowflo <g175151@gmail.com>
+Date:   Fri Jan 29 14:22:54 2021 +0900
+
+    발표자료 폴더 생성
+
+[33mcommit bd8489bd1806d849d4026074c6e7145594522e2e[m
+Author: snowflo <g175151@gmail.com>
+Date:   Fri Jan 22 15:26:56 2021 +0900
+
+    폴더 생성 안드로이드/파이썬 코드 없음
+
+[33mcommit 21cefacfb0c20c46159facd93cfe02a3e7c649fb[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Sun Jan 17 22:38:05 2021 +0900
+
+    RecordTest - Kotlin
+    
+    녹음 버튼 클릭 시 녹음 시작 -> 녹음 중지 시 파일 생성 -> Device File Explorer -> app -> Download 에 3gp 파일 생성(오디오 파일)
+
+[33mcommit 5f5fe13378342be1409d440eb4f059225a338bc6[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Sun Jan 17 22:33:54 2021 +0900
+
+    Delete Kotlin
+
+[33mcommit 17b23d7de4fc5580edeaf802056258e9bdcd0e6e[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Sun Jan 17 22:33:21 2021 +0900
+
+    Create Kotlin
+    
+    Kotlin
+
+[33mcommit 31c0b02e16f2ec546a362d9d0daa8dbcfc2b5306[m
+Author: snowflo <66053685+snowflo@users.noreply.github.com>
+Date:   Wed Jan 13 11:16:05 2021 +0900
+
+    Delete 0. 백견불여일타 파이어베이스.txt
+
+[33mcommit a8c65a8dbb144b31ce1d59b0fe24e15aa376dcf4[m
+Author: snowflo <66053685+snowflo@users.noreply.github.com>
+Date:   Wed Jan 13 11:15:54 2021 +0900
+
+    Delete 1. 구글 파이어베이스 소개.docx
+
+[33mcommit c8fef64122504f9a8db109c417498892dab85356[m
+Author: snowflo <66053685+snowflo@users.noreply.github.com>
+Date:   Wed Jan 13 11:15:36 2021 +0900
+
+    Delete 2. 파이어베이스 사용을 위한 기본 조건.docx
+
+[33mcommit 3eb481c66cf88e0d55ee726c634c0c81c024800a[m
+Author: snowflo <66053685+snowflo@users.noreply.github.com>
+Date:   Wed Jan 13 11:13:08 2021 +0900
+
+    파이어베이스 조사 자료 - 참조: 백견불여일타 파이어베이스 1
+
+[33mcommit 26c8d113f0f6a067ac37163d53e889d30d7ab38b[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 17:35:12 2021 +0900
+
+    Update README.md
+
+[33mcommit d22784f77a376b299d7ec9e7d3ddded4a87eb012[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 17:19:16 2021 +0900
+
+    Update README.md
+
+[33mcommit f9a693a1b42d68cfd79b17934d2b7d753a5b7d49[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 17:18:25 2021 +0900
+
+    Update README.md
+
+[33mcommit 2614045d4fced64bddfcf22f76d3400c1e206c9b[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 17:16:53 2021 +0900
+
+    Update README.md
+
+[33mcommit 2b07b2bee070773085dfebe3b979c07173ea0679[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 17:15:26 2021 +0900
+
+    Update README.md
+
+[33mcommit 8e69d1e055235ee30b6140adf1ef5d2e5c4c1b26[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 16:09:01 2021 +0900
+
+    Update README.md
+
+[33mcommit 07e892ae793d630ec73e57d477ef503dfde9aa02[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 16:07:47 2021 +0900
+
+    Update README.md
+
+[33mcommit 09bd38020af2167d0fc0a87fdc68c7cb084d2d72[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 16:04:51 2021 +0900
+
+    Update README.md
+
+[33mcommit 48c352bf1eb2c9304af983865025480e75f14ff6[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 16:02:49 2021 +0900
+
+    Update README.md
+
+[33mcommit f5fe3b3618ad4afa4ff0a0dc058125e0ea530369[m
+Author: jaehee3505 <68673384+jaehee3505@users.noreply.github.com>
+Date:   Mon Jan 11 16:02:30 2021 +0900
+
+    Create README.md
+
+[33mcommit d5a8748ceadb7cb21ec0da80301fc0b4620f06d5[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Sat Jan 9 15:04:33 2021 +0900
+
+    Update 발표자료 version.2
+    
+    aa
+
+[33mcommit 512a12dd16f6195f822756391920cb3f1c699046[m
+Author: ingbox <76674117+ingbox@users.noreply.github.com>
+Date:   Sat Jan 9 14:42:14 2021 +0900
+
+    Create 발표 자료
