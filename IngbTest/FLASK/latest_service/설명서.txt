@@ -1,0 +1,5 @@
+db: DB 파일
+model: 모델 파일 (경로 나중 지정 : model / 사용자명 / 모델명)
+operation: 사용자 입력 음성 임시 저장 폴더 (경로 나중 지정: operation / 사용자명 / 파일들)
+shutil_template: 사용자들에게 복사해줄 템플릿 형태 + 모델(추가 예정)
+temp: 사용자 템플릿 저장소
