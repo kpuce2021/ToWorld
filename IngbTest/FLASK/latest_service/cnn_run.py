@@ -22,8 +22,8 @@ if gpus:
         print(e)
 
 
-def wav2spec(filename):
-    filename = "operation/"+ filename
+def wav2spec(filename, email):
+    filename = "operation/"+ email + "/" + filename
     FIG_SIZE = (2.6, 2)
     sig, sr = librosa.load(filename, sr=22050)
     plt.figure(figsize=FIG_SIZE)
@@ -37,8 +37,8 @@ def wav2spec(filename):
     plt.savefig(filename + '.png', bbox_inches=None, pad_inches=0)  # /tmp/check1.png로 저장 
 
 
-def pre_denoise(filename):
-    filename = "operation/"+ filename
+def pre_denoise(filename, email):
+    filename = "operation/" + email + "/" + filename
     print("pre_denoise 함수")
     FIG_SIZE = (2.6, 2)
 
@@ -55,8 +55,7 @@ def pre_denoise(filename):
 
 # 학습모드
 def cnn_pre_denoise(filename, isThere, email, answer):
-    filename = "operation/"+ filename
-    print("pre_denoise 함수")
+    filename = "operation/" + email + "/"+ filename
     FIG_SIZE = (2.6, 2)
 
     img = cv2.imread(filename + '.png')  # 가상환경에 저장한 것 불러옴
@@ -71,24 +70,24 @@ def cnn_pre_denoise(filename, isThere, email, answer):
     if(isThere > 0):                # 이미 존재
         path = "temp/" + email + "/" + answer
 
-        if(isThere % 5 == 0):       # % [데이터 개수] --> 조절하면 됨. 50개 하려면 49로
-          print("hello")
+        if(isThere % 5 == 0):
+          print("___데이터베이스 내의 파일의 개수가 몇의 배수이면 Convolution을 수행합니다___")
           # convolution() 
     else:                           # 기존에 존재하지 않음 == 0
-        print("요기까진 오잖아")
+        print("___문장이 없을 경우 새로운 파일이 생성됩니다___")
         path = "temp/" + email + "/" + answer
         os.makedirs(path)       # 폴더 여러개 생성
 
-    filename = answer + str(isThere+1) + ".png"
-    final_path = path + "/" + filename
+    pre_aug_png = answer + str(isThere+1) + ".png"
+    final_path = path + "/" + pre_aug_png
    
     plt.savefig(final_path, bbox_inches=None, pad_inches=0)  # /tmp/denoise.png로 저장
 
     spec_aug(final_path)
     
 
-def check_model(filename):
-    filename = "operation/"+ filename
+def check_model(filename, email):
+    filename = "operation/"+ email + "/" + filename
     check_model = load_model('model/model.h5')
     main_img = cv2.imread(filename+'.png') 
     main_img = cv2.cvtColor(main_img, cv2.COLOR_BGR2RGB)

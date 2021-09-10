@@ -1,5 +1,5 @@
 from flask import Flask, request  # 대문자: class
-from flask import Response, make_response
+from flask import make_response
 from cnn_run import *
 from werkzeug.utils import secure_filename
 import sqlite3 as sql
@@ -16,7 +16,7 @@ email = "asd123@naver.com"
 count = "0"
 dic_list = [{'result': "hello","count":"1"}]
 
-@app.route('/predict', methods=["GET","POST"]) #파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+@app.route('/predict', methods=["GET","POST"])
 def predict():
     global result_text
 
@@ -25,19 +25,17 @@ def predict():
         print(file)
         email = request.form["user_email"]
         filename = secure_filename(file.filename)
-        file.save("operation/" + filename)
+        file.save("operation/"+ email + "/" + filename)
 
-        # cnn_run
-        wav2spec(filename)
-        pre_denoise(filename)
-        result_text = check_model(filename)
-        print(result_text)
+        wav2spec(filename, email)
+        pre_denoise(filename, email)
+        result_text = check_model(filename, email)
 
     return {
-        "result" : "predict:"+result_text
+        "result" : result_text
     }
 
-@app.route('/con', methods=["GET", "POST"])  # 파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+@app.route('/con', methods=["GET", "POST"])
 def convolution():
     global result_text
     global email
@@ -52,9 +50,9 @@ def convolution():
         filename = secure_filename(file.filename)
         email = request.form["user_email"]  # email
         answer = request.form["answer"]
-        file.save("operation/" + filename)
+        file.save("operation/"+ email +"/" + filename)
         
-        # if 가져온 user_email의 존재 유무 체크(table 명의 존재 유무)
+        # result Count
         c.execute("SELECT MAX(id) FROM cnn_table WHERE email=? AND result=?;", (email, answer)) # 만약 가장 큰 값의 숫잘 리턴받을거야
 
         isThere = c.fetchone()[0]
@@ -83,7 +81,7 @@ def convolution():
     return json.dumps(dic_list)
 
 
-@app.route('/pre_con', methods=["GET", "POST"])  # 파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+@app.route('/pre_con', methods=["GET", "POST"])
 def con_predict():
     global result_text
     global email
@@ -93,7 +91,7 @@ def con_predict():
     c = con.cursor()
 
     if request.method == "POST":
-        # check
+      
         email = request.form["user_email"]  # email
 
         # c.execute("select COUNT(*) from cnn_table where email=(?);", (email,))
@@ -119,8 +117,7 @@ def con_predict():
     
     return json.dumps(dic_list)
     
-
-@app.route('/progress', methods=["GET", "POST"])  # 파이썬 데코레이터: 이 주소에 아래의 함수를 매칭 return은 보통 string이나 html
+@app.route('/progress', methods=["GET", "POST"])
 def progress():
     global email
     global count
@@ -137,9 +134,12 @@ def progress():
 
         isEmail = c.fetchone()[0]
 
+        # 처음 사용자 템플릿 구성
         if(isEmail == 0):
-            c.execute("insert into cnn_table values(50,?,'오늘날씨어때'),(50,?,'내일날씨어때'),(50,?,'굿모닝')",(email,email,email))
+            c.execute("insert into cnn_table values(50,?,'오늘날씨어때'),(50,?,'내일날씨어때'),(50,?,'굿모닝'),(50,?,'출근길교통상황어때'),(50,?,'음악추천해줘'),(50,?,'상호한테전화해줘'),(50,?,'유튜브에서동빈나틀어줘')",(email,email,email,email,email,email,email))
             copy_tree("./shutil_template", "temp/" + email)
+            oper_path = "operation/" + email
+            os.makedirs(oper_path)
 
         c.execute("SELECT COUNT(*) FROM cnn_table WHERE email =(?);",(email,))
         count = c.fetchone()[0]
@@ -151,6 +151,5 @@ def progress():
         "result": count
     }
 
-    # startFlask에서 부르는 app
 if __name__ == '__main__': 
     app.run(host='192.168.219.100',debug=True, threaded=True)
