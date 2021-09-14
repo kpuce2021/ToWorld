@@ -160,7 +160,7 @@ class BottomSheetFragment: BottomSheetDialogFragment(),BottomDialogAdapter.OnIte
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(context,"Item $position clicked", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context,"Item" + item[position] + "clicked", Toast.LENGTH_SHORT).show()
         val clickedItem:CNN_Result = item[position]
         Log.d("TAG",clickedItem.toString())
         uploadFile(clickedItem.result)
