@@ -14,6 +14,15 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.main_action_menu
+import kotlinx.android.synthetic.main.activity_main.main_drawer_layout
+import kotlinx.android.synthetic.main.activity_main.main_navigation_view
+import kotlinx.android.synthetic.main.activity_main.main_toolbar
+import kotlinx.android.synthetic.main.activity_main.milliTextView
+import kotlinx.android.synthetic.main.activity_main.secTextView
+import kotlinx.android.synthetic.main.activity_main.start_button
+import kotlinx.android.synthetic.main.activity_main.stop_button
+import kotlinx.android.synthetic.main.activity_using.*
 import kr.ac.kpu.firstproject.R
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -126,6 +135,7 @@ class UsingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         override fun onResponse(call: Call<Result>, response: retrofit2.Response<Result>) {
             val result = response.body()
             Log.d(TAG, "결과는 => $result")
+            getResultText.text = "$result"
             Toast.makeText(this@UsingActivity,"예측 결과: $result", Toast.LENGTH_SHORT).show()
         }
     })

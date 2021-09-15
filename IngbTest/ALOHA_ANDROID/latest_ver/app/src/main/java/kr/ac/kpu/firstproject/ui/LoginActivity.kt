@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if(task.isSuccessful){
-                                val loginIntent = Intent(this, MainActivity::class.java)
+                                val loginIntent = Intent(this, UsingActivity::class.java) // Using, Main
                                 loginIntent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //새로운 Activity를 수행하고 현재 Activity를 스택에서 제거하기
                                 loginIntent.putExtra("user_email",input_email.text.toString())

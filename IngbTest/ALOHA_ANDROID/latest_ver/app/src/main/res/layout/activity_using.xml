@@ -149,7 +149,20 @@
                     android:id="@+id/stop_button"
                     />
             </LinearLayout>
+
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/getResultText"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="" />
         </LinearLayout>
+
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
