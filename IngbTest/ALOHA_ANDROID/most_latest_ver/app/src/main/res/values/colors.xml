@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#92B3B7</color>
+    <color name="colorPrimaryDark">#75BC00</color>
+    <color name="colorAccent">#75BC00</color>
+    <color name="colorWordInColorPrimary">#FFFFFF</color>
+    <color name="colorTextForNotPushButton">#A6A6A6</color>
+    <color name="colorTextForNotPushRoundButton">#212121</color>
+    <color name="colorTextForCaution">#FF0000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#A9CBD7</color>
+</resources>

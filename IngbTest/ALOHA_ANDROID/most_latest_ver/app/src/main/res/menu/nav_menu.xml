@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="모드선택">
+        <menu>
+            <group
+                android:id="@+id/menu_tournament">
+                <item
+                    android:id="@+id/action_using_mode"
+                    android:title="사용/학습모드 전환" />
+                <item
+                    android:id="@+id/action_logout"
+                    android:title="로그아웃" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="카테고리">
+        <menu>
+            <group
+                android:id="@+id/menu_category">
+                <item
+                    android:id="@+id/action_category_idol"
+                    android:title="내 학습률 살펴보기"/>
+
+                <item
+                    android:id="@+id/action_category_etc"
+                    android:title="추가 지원"/>
+           </group>
+        </menu>
+    </item>
+
+    <item android:title="고객지원">
+        <menu>
+            <group
+                android:id="@+id/menu_help_service">
+                <item
+                    android:id="@+id/action_send_email_to_developer"
+                    android:title="개발자에게 메일 보내기"/>
+            </group>
+        </menu>
+    </item>
+</menu>
